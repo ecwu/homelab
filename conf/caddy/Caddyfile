@@ -1,0 +1,8 @@
+home.local.ecwu.xyz {
+    reverse_proxy homarr:7575
+    tls /etc/ssl/certs/xx.crt /etc/ssl/certs/xx.key
+}
+
+# ––––––––––––––––––––––––––––––––––––––––––––
+#  Add more rules
+# ––––––––––––––––––––––––––––––––––––––––––––

@@ -1,0 +1,19 @@
+version: '3'
+services:
+  youtrack:
+    image: jetbrains/youtrack:2022.2.55618
+    container_name: youtrack
+    restart: unless-stopped
+    networks:
+      - caddy
+    volumes:
+      - /home/ecwu/docker/youtrack/data:/opt/youtrack/data
+      - /home/ecwu/docker/youtrack/conf:/opt/youtrack/conf
+      - /home/ecwu/docker/youtrack/logs:/opt/youtrack/logs
+      - /home/ecwu/docker/youtrack/backups:/opt/youtrack/backups
+
+networks:
+  portainer:
+  caddy:
+    external: true
+

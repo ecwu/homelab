@@ -1,0 +1,17 @@
+---
+version: '3'
+services:
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    networks:
+      - caddy
+    volumes:
+      - /home/ecwu/docker/homarr/configs:/app/data/configs
+      - /home/ecwu/docker/homarr/icons:/app/public/icons
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  caddy:
+    external: true

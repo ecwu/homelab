@@ -1,0 +1,18 @@
+version: '3'
+services:
+  speedtest:
+    image: adolfintel/speedtest:latest
+    container_name: speedtest
+    restart: unless-stopped
+    networks:
+      - caddy
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      TITLE: ECWU LAN speedtest
+      WEBPORT: 80
+
+networks:
+  caddy:
+    external: true
+

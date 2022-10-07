@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: always
+    networks:
+      - caddy
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/site:/srv
+      - $PWD/caddy_data:/data
+      - $PWD/caddy_config:/config
+      - $PWD/certs:/etc/ssl/certs
+    environment:
+      DOMAIN: 'local.ecwu.xyz'
+
+networks:
+  caddy:
+    external: true
+

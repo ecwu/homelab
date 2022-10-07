@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  dash:
+    image: mauricenino/dashdot:latest
+    container_name: dashdot
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /:/mnt/host:ro
+    networks:
+      - caddy
+      
+networks:
+  caddy:
+    external: true
